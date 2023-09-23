@@ -1,10 +1,11 @@
 import React from 'react';
 
-const ModalB = ({ closeModal, openModal, openModal1, showModal1 }) => {
+const ModalB = ({ closeModal, openModal, openModal1, showModal1, us }) => {
 
 
     return (
         <div>
+
 
             <div className={`modal ${showModal1 ? 'show' : ''}`} tabIndex="-1" style={{ display: showModal1 ? 'block' : 'none' }}>
                 <div className="modal-dialog">
@@ -14,19 +15,18 @@ const ModalB = ({ closeModal, openModal, openModal1, showModal1 }) => {
 
                         </div>
                         <div className="modal-body">
-                            <p>This is the content of the modal.</p>
+                            {us.map((dta, i) => (
+                                <li key={i} className='d-flex'>
+                                    <p>{dta.phone}</p><span> </span>  <p>{dta.country.name}</p>
+                                </li>
+                            ))}
                         </div>
                         <div className="modal-footer">
-                            <button style={{ color: '#46139f' }} className="btn btn-lg " onClick={openModal} type="button" >All Contacts</button>
+                            <button style={{ color: 'white', backgroundColor: '#46139f' }} className="btn btn-lg " onClick={openModal} type="button" >All Contacts</button>
 
-                            <button style={{ color: '#ff7f50' }} className="btn btn-lg " onClick={openModal1} type="button" >US Contacts</button>
-                            <button style={{ color: '#46139f' }} className="btn btn-lg " type="button" onClick={closeModal} >Close</button>
-                            {/* <button type="button" className="btn btn-secondary" onClick={handleModalToggle}>
-                                Close
-                            </button>
-                            <button type="button" className="btn btn-primary" onClick={handleModalToggle}>
-                                Save changes
-                            </button> */}
+                            <button style={{ color: 'white', backgroundColor: '#ff7f50' }} className="btn btn-lg " onClick={openModal1} type="button" >US Contacts</button>
+                            <button style={{ color: 'white', backgroundColor: '#46139f' }} className="btn btn-lg " type="button" onClick={closeModal} >Close</button>
+
                         </div>
                     </div>
                 </div>
